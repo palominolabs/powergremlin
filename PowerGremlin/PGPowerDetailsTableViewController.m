@@ -44,7 +44,11 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [self.tableView reloadData];
+    if (!self.trialStartCapacity) {
+        [self resetTrial];
+    } else {
+        [self.tableView reloadData];
+    }
 }
 
 
@@ -172,12 +176,12 @@
 #define PG_TRIAL_START_CAPACITY @"trialStartCapacity"
 #define PG_TRIAL_START_TIME @"trialStartTime"
 
-- (double)trialStartCapacity {
-    return [[NSUserDefaults standardUserDefaults] doubleForKey:PG_TRIAL_START_CAPACITY];
+- (int)trialStartCapacity {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:PG_TRIAL_START_CAPACITY];
 }
 
-- (void)setTrialStartCapacity:(double)trialStartCapacity {
-    [[NSUserDefaults standardUserDefaults] setDouble:trialStartCapacity forKey:PG_TRIAL_START_CAPACITY];
+- (void)setTrialStartCapacity:(int)trialStartCapacity {
+    [[NSUserDefaults standardUserDefaults] setInteger:trialStartCapacity forKey:PG_TRIAL_START_CAPACITY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

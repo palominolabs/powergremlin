@@ -10,7 +10,7 @@
 
 @interface PGPowerDetailsTableViewController : UITableViewController
 
-@property(nonatomic) double trialStartCapacity;
+@property(nonatomic) int trialStartCapacity;
 @property(nonatomic) double trialStartTime;
 
 @end
