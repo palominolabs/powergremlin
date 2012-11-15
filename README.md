@@ -1,6 +1,8 @@
 powergremlin
 ============
 
+<img src="http://blog.palominolabs.com/images/powergremlin-banner.png" width=600 height=293/>
+
 Powergremlin provides iOS6 device power usage measurements.
 
 It only runs on iOS6+. You'll need XCode4.2+ and a valid iOS developer account to run the code on your phone. The code itself has no external dependencies. To get started just do something like this:
@@ -11,4 +13,4 @@ cd powergremlin
 open PowerGremlin.xcodeproj
 ```
 
-Then connect an iOS device and run!
+Then connect an iOS device and run! For more info check out the [Palomino Labs Blog](http://blog.palominolabs.com/2012/11/14/introducing-powergremlin/)
