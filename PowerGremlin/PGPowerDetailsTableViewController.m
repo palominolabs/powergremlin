@@ -8,6 +8,7 @@
 #import "PGPowerDetailsTableViewController.h"
 #import "PGPowerLog.h"
 
+NSString *const kCurrentLogSettingsKey = @"current_log_file";
 
 @implementation PGPowerDetailsTableViewController {
     NSTimer *_refreshTimer;
@@ -17,6 +18,10 @@
 - (id)init {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
+        NSString *currentLog = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentLogSettingsKey];
+        if (currentLog) {
+            _powerLog = [[PGPowerLog alloc] initWithLogFileName:currentLog];
+        }
     }
 
     return self;
@@ -37,6 +42,8 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *logFileName = [alertView textFieldAtIndex:0].text;
+    [[NSUserDefaults standardUserDefaults] setObject:logFileName forKey:kCurrentLogSettingsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     _powerLog = [[PGPowerLog alloc] initWithLogFileName:logFileName];
 
     self.trialStartCapacity = PG_getBatteryCurrentCapacity();
@@ -86,7 +93,7 @@
         case 1:
             return 3;
         case 2:
-            return 1;
+            return 2;
         default:
             return 0;
     }
@@ -159,6 +166,10 @@
             case 0:
                 cell.textLabel.text = @"Start New Log";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 1:
+                cell.textLabel.text = @"Current Log";
+                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentLogSettingsKey];
                 break;
             default:
                 break;

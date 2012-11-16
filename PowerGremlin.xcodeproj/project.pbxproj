@@ -18,6 +18,7 @@
 		64172E0816556CD400218A1A /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CA2E8416546F8400E0CBFF /* Icon-72@2x.png */; };
 		64172E0916556CDB00218A1A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CA2E8616546F8A00E0CBFF /* Icon.png */; };
 		64172E0A16556CDE00218A1A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CA2E8816546F8E00E0CBFF /* Icon@2x.png */; };
+		643AB35A1656DB5B004B0FC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 643AB3591656DB5B004B0FC5 /* Settings.bundle */; };
 		6490E2F7164DCCD500F30EA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6490E2F6164DCCD500F30EA7 /* UIKit.framework */; };
 		6490E2F9164DCCD500F30EA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6490E2F8164DCCD500F30EA7 /* Foundation.framework */; };
 		6490E2FB164DCCD500F30EA7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6490E2FA164DCCD500F30EA7 /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		643AB3591656DB5B004B0FC5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6490E2F2164DCCD500F30EA7 /* PowerGremlin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerGremlin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6490E2F6164DCCD500F30EA7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6490E2F8164DCCD500F30EA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +129,7 @@
 				BF8AE98B650E5F15CF7CEB1C /* PGPowerDetailsTableViewController.h */,
 				BF8AE66BA2F3C91E5CCC4124 /* PGPowerLog.m */,
 				BF8AEB6412DA0AD079850476 /* PGPowerLog.h */,
+				643AB3591656DB5B004B0FC5 /* Settings.bundle */,
 			);
 			path = PowerGremlin;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				64172E0916556CDB00218A1A /* Icon.png in Resources */,
 				64172E0A16556CDE00218A1A /* Icon@2x.png in Resources */,
 				6406120116556E1C00745430 /* Default.png in Resources */,
+				643AB35A1656DB5B004B0FC5 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 
 #import "PGPowerLog.h"
 
-
 @implementation PGPowerLog {
     NSString *_logFilePath;
     NSTimer *_timer;
