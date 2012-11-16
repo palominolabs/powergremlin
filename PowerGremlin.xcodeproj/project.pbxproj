@@ -24,6 +24,7 @@
 		6490E301164DCCD500F30EA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6490E2FF164DCCD500F30EA7 /* InfoPlist.strings */; };
 		6490E303164DCCD500F30EA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6490E302164DCCD500F30EA7 /* main.m */; };
 		6490E307164DCCD500F30EA7 /* PGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6490E306164DCCD500F30EA7 /* PGAppDelegate.m */; };
+		BF8AE212854C9FEAC3E598AA /* PGPowerLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8AE66BA2F3C91E5CCC4124 /* PGPowerLog.m */; };
 		BF8AE44E14067A03506D0551 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8AE8DA1A09FA1F9D3F07E5 /* QuartzCore.framework */; };
 		BF8AE6A97DB727746C002911 /* PGPowerUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8AEB584560681B0BB9048B /* PGPowerUtils.m */; };
 		BF8AE732A6176B6C42F7B606 /* PGPowerDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8AE192F8DCBFB235B8351A /* PGPowerDetailsTableViewController.m */; };
@@ -53,9 +54,11 @@
 		64CA2E90165470F100E0CBFF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		BF8AE042A274AA2F42B348BB /* PGPowerUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPowerUtils.h; sourceTree = "<group>"; };
 		BF8AE192F8DCBFB235B8351A /* PGPowerDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPowerDetailsTableViewController.m; sourceTree = "<group>"; };
+		BF8AE66BA2F3C91E5CCC4124 /* PGPowerLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPowerLog.m; sourceTree = "<group>"; };
 		BF8AE8DA1A09FA1F9D3F07E5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BF8AE98B650E5F15CF7CEB1C /* PGPowerDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPowerDetailsTableViewController.h; sourceTree = "<group>"; };
 		BF8AEB584560681B0BB9048B /* PGPowerUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGPowerUtils.m; sourceTree = "<group>"; };
+		BF8AEB6412DA0AD079850476 /* PGPowerLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGPowerLog.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				BF8AE042A274AA2F42B348BB /* PGPowerUtils.h */,
 				BF8AE192F8DCBFB235B8351A /* PGPowerDetailsTableViewController.m */,
 				BF8AE98B650E5F15CF7CEB1C /* PGPowerDetailsTableViewController.h */,
+				BF8AE66BA2F3C91E5CCC4124 /* PGPowerLog.m */,
+				BF8AEB6412DA0AD079850476 /* PGPowerLog.h */,
 			);
 			path = PowerGremlin;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				6490E307164DCCD500F30EA7 /* PGAppDelegate.m in Sources */,
 				BF8AE6A97DB727746C002911 /* PGPowerUtils.m in Sources */,
 				BF8AE732A6176B6C42F7B606 /* PGPowerDetailsTableViewController.m in Sources */,
+				BF8AE212854C9FEAC3E598AA /* PGPowerLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

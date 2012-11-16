@@ -6,30 +6,42 @@
 
 
 #import "PGPowerDetailsTableViewController.h"
+#import "PGPowerLog.h"
 
 
 @implementation PGPowerDetailsTableViewController {
     NSTimer *_refreshTimer;
+    PGPowerLog *_powerLog;
 }
 
 - (id)init {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-
     }
 
     return self;
 }
 
-- (void)resetTrial {
+- (void)dealloc {
+    [_refreshTimer invalidate];
+}
+
+- (void)startNewLog {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Log File Name" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView show];
+
+}
+
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *logFileName = [alertView textFieldAtIndex:0].text;
+    _powerLog = [[PGPowerLog alloc] initWithLogFileName:logFileName];
+
     self.trialStartCapacity = PG_getBatteryCurrentCapacity();
     self.trialStartTime = CACurrentMediaTime();
     [self.tableView reloadData];
-}
-
-- (void)dealloc {
-
-    [_refreshTimer invalidate];
 }
 
 
@@ -45,7 +57,7 @@
     [super viewDidAppear:animated];
 
     if (!self.trialStartCapacity) {
-        [self resetTrial];
+        [self startNewLog];
     } else {
         [self.tableView reloadData];
     }
@@ -145,7 +157,7 @@
     } else if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0:
-                cell.textLabel.text = @"Reset";
+                cell.textLabel.text = @"Start New Log";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 break;
             default:
@@ -162,7 +174,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2 && indexPath.row == 0) {
-        [self resetTrial];
+        [self startNewLog];
     }
 }
 

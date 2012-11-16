@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface PGPowerDetailsTableViewController : UITableViewController
+@interface PGPowerDetailsTableViewController : UITableViewController <UIAlertViewDelegate>
 
 @property(nonatomic) int trialStartCapacity;
 @property(nonatomic) double trialStartTime;
