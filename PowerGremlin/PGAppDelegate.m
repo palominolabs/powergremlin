@@ -9,7 +9,9 @@
 #import "PGAppDelegate.h"
 #import "PGPowerDetailsTableViewController.h"
 
-@implementation PGAppDelegate
+@implementation PGAppDelegate {
+    UIBackgroundTaskIdentifier _backgroundTaskExpirationHandler;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     PG_loadOSDBattery();
@@ -19,6 +21,14 @@
     [self.window makeKeyAndVisible];
 
     return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    _backgroundTaskExpirationHandler = [application beginBackgroundTaskWithExpirationHandler:nil];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [application endBackgroundTask:_backgroundTaskExpirationHandler];
 }
 
 
