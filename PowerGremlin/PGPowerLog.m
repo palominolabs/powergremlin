@@ -9,7 +9,6 @@
 
 @implementation PGPowerLog {
     NSString *_logFilePath;
-    NSTimer *_timer;
 }
 - (id)initWithLogFileName:(NSString *)logFileName {
     self = [super init];
@@ -31,8 +30,6 @@
             NSData *headersData = [[NSString stringWithFormat:@"%@\n", [headers componentsJoinedByString:@","]] dataUsingEncoding:NSUTF8StringEncoding];
             [headersData writeToFile:_logFilePath atomically:YES];
         }
-
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(appendLogEntry) userInfo:nil repeats:YES];
     }
 
     return self;
@@ -59,11 +56,8 @@
     [handle seekToEndOfFile];
     NSString *logEntryWithNewLine = [NSString stringWithFormat:@"%@\n", logEntry];
     [handle writeData:[logEntryWithNewLine dataUsingEncoding:NSUTF8StringEncoding]];
+    [handle synchronizeFile];
     [handle closeFile];
-}
-
-- (void)dealloc {
-    [_timer invalidate];
 }
 
 

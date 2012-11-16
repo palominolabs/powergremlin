@@ -6,9 +6,10 @@
 
 
 #import <Foundation/Foundation.h>
+#import "PGBackgroundProcessing.h"
 
 
-@interface PGPowerDetailsTableViewController : UITableViewController <UIAlertViewDelegate>
+@interface PGPowerDetailsTableViewController : UITableViewController <UIAlertViewDelegate, PGBackgroundProcessingDelegate>
 
 @property(nonatomic) int trialStartCapacity;
 @property(nonatomic) double trialStartTime;

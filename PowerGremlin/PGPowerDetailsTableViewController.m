@@ -7,12 +7,17 @@
 
 #import "PGPowerDetailsTableViewController.h"
 #import "PGPowerLog.h"
+#import "PGBackgroundProcessing.h"
 
 NSString *const kCurrentLogSettingsKey = @"current_log_file";
+
+static int const kLogUpdateIntervalSeconds = 5;
 
 @implementation PGPowerDetailsTableViewController {
     NSTimer *_refreshTimer;
     PGPowerLog *_powerLog;
+    PGBackgroundProcessing *_backgroundProcessing;
+    CFTimeInterval _lastLogEntryTime;
 }
 
 - (id)init {
@@ -21,6 +26,9 @@ NSString *const kCurrentLogSettingsKey = @"current_log_file";
         NSString *currentLog = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentLogSettingsKey];
         if (currentLog) {
             _powerLog = [[PGPowerLog alloc] initWithLogFileName:currentLog];
+            _backgroundProcessing = [[PGBackgroundProcessing alloc] initWithDelegate:self];
+            [_backgroundProcessing start];
+            _lastLogEntryTime = CACurrentMediaTime();
         }
     }
 
@@ -36,6 +44,17 @@ NSString *const kCurrentLogSettingsKey = @"current_log_file";
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alertView show];
 
+}
+
+#pragma mark PGBackgroundProcessing
+
+- (void)process {
+    if (CACurrentMediaTime() - _lastLogEntryTime < kLogUpdateIntervalSeconds) {
+        return;
+    }
+
+    [_powerLog appendLogEntry];
+    _lastLogEntryTime = CACurrentMediaTime();
 }
 
 #pragma mark UIAlertViewDelegate
