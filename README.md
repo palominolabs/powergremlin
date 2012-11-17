@@ -13,4 +13,7 @@ cd powergremlin
 open PowerGremlin.xcodeproj
 ```
 
-Then connect an iOS device and run! For more info check out the [Palomino Labs Blog](http://blog.palominolabs.com/2012/11/14/introducing-powergremlin/)
+Then connect an iOS device and run! If you connect the phone to iTunes you can copy logs to your computer so that you can see the usage over time.
+
+
+For more info check out the [Palomino Labs Blog](http://blog.palominolabs.com/2012/11/14/introducing-powergremlin/)
