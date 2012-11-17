@@ -7,11 +7,12 @@
 
 #import "PGPowerDetailsTableViewController.h"
 #import "PGPowerLog.h"
-#import "PGBackgroundProcessing.h"
 
 NSString *const kCurrentLogSettingsKey = @"current_log_file";
 
-static int const kLogUpdateIntervalSeconds = 5;
+static NSString *const kLogIntervalDefaultsKey = @"log_interval";
+
+static int const kMinLogInterval = 1;
 
 @implementation PGPowerDetailsTableViewController {
     NSTimer *_refreshTimer;
@@ -49,7 +50,11 @@ static int const kLogUpdateIntervalSeconds = 5;
 #pragma mark PGBackgroundProcessing
 
 - (void)process {
-    if (CACurrentMediaTime() - _lastLogEntryTime < kLogUpdateIntervalSeconds) {
+    NSInteger logInterval = [[NSUserDefaults standardUserDefaults] integerForKey:kLogIntervalDefaultsKey];
+    if (logInterval <= kMinLogInterval) {
+        logInterval = kMinLogInterval;
+    }
+    if (CACurrentMediaTime() - _lastLogEntryTime < logInterval) {
         return;
     }
 
